@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><style>
+    body { width: 300px; padding: 16px; font-family: sans-serif; }
+    input, button { width: 100%; margin: 8px 0; padding: 8px; }
+    #pinSetup, #loginForm, #lockScreen { display: none; }
+</style></head>
+<body>
+<div id="pinSetup">
+    <h3>Set 6-digit PIN</h3>
+    <input id="pinInput" type="password" maxlength="6" placeholder="6-digit PIN">
+    <button id="setPinBtn">Set PIN</button>
+</div>
+
+<div id="lockScreen">
+    <h3>🔒 Locked</h3>
+    <input id="unlockPin" type="password" maxlength="6" placeholder="Enter PIN">
+    <button id="unlockBtn">Unlock</button>
+</div>
+
+<div id="loginForm">
+    <input id="username" placeholder="Username">
+    <button id="registerBtn">Register</button>
+    <button id="loginBtn">Login</button>
+    <div id="status"></div>
+</div>
+
+<script type="module" src="popup.js"></script>
+</body>
+</html>

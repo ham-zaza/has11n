@@ -1,0 +1,23 @@
+# Create a clean .gitignore file
+@"
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# Build outputs
+dist/
+build/
+coverage/
+"@ | Out-File -FilePath .gitignore -Encoding utf8
