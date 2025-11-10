@@ -12,12 +12,21 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: [
-        'http://localhost:3000',
-        'chrome-extension://*'
-    ],
+    origin: (origin, callback) => {
+        // Allow no-origin (like curl, Postman) and localhost web app
+        if (!origin) return callback(null, true);
+        if (origin.startsWith('http://localhost') || origin.startsWith('http://127.0.0.1')) {
+            return callback(null, true);
+        }
+        if (origin.startsWith('chrome-extension://')) {
+            return callback(null, true);
+        }
+        // deny others
+        return callback(new Error('Not allowed by CORS'), false);
+    },
     credentials: true
 }));
+
 
 // DB
 connectDB();

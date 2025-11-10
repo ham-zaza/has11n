@@ -48,6 +48,17 @@ export function verifyChaumPedersen(proof, y, z) {
         .update(domain)
         .update(timestamp.toString())
         .digest(); // ← This returns a Buffer
+    console.log("SERVER hash input =>", {
+        g: g.toString(),
+        h: h.toString(),
+        y: y.toString(),
+        z: z.toString(),
+        a: a.toString(),
+        b: b.toString(),
+        domain,
+        timestamp: timestamp.toString()
+    });
+    console.log("SERVER c_hex =", computedHex);
 
     const c = BigInt('0x' + hash.toString('hex')) % q;
 

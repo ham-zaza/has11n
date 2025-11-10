@@ -106,8 +106,10 @@ export const verifyProof = async (req, res) => {
         const valid = verifyChaumPedersen(proof, Y, Z);
 
         if (valid) {
+            console.log("✅ Login successful!");
             return res.json({ message: "✅ Login successful!" });
-        } else {
+        }  else {
+            console.log("❌ Invalid proof (verifier returned false)");
             return res.status(401).json({ error: "❌ Invalid proof" });
         }
     } catch (err) {

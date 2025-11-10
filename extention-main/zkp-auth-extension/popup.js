@@ -211,7 +211,7 @@ loginBtn.addEventListener('click', async () => {
             ));
             const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
             const c = BigInt('0x' + hashHex) % ZKP_PARAMS.q;
-
+            console.log("CLIENT c_hex =", hashHex);
             // Response s = k + c * x mod q
             const s = (k + c * secretX) % ZKP_PARAMS.q;
 
